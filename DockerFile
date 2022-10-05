@@ -1,6 +1,11 @@
-FROM ubuntu
-LABEL user "anshita"
-RUN apt-get update
-CMD ["Hello, this is my DockerFile"]
-ENTRYPOINT [echo,"Hello World"]
-COPY 
+FROM php:7.2-apache
+
+RUN docker-php-ext-install pdo pdo_mysql mysqli
+
+#Start services
+CMD /usr/sbin/apache2ctl -D FOREGROUND
+
+#Copy files to webserver 
+COPY . /var/www/html/
+
+EXPOSE 80
