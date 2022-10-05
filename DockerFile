@@ -1,0 +1,6 @@
+FROM ubuntu
+LABEL user "anshita"
+RUN apt-get update
+CMD ["Hello, this is my DockerFile"]
+ENTRYPOINT [echo,"Hello World"]
+COPY 
